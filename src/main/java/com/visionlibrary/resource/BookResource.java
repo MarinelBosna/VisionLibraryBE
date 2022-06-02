@@ -138,4 +138,17 @@ public class BookResource {
         return new ResponseEntity<>(books, HttpStatus.OK);
     }
 
+    @GetMapping("/findAvailableBooks")
+    public ResponseEntity<List<Book>> getAvailableBooks(){
+        List<Book> books = bookService.findAvailableBooks();
+        return new ResponseEntity<>(books, HttpStatus.OK);
+    }
+
+    @GetMapping("/sortUnavailableBooks")
+    public ResponseEntity<List<Book>> getUnavailableBooks(){
+        List<Book> books = bookService.findUnavailableBooks();
+        return new ResponseEntity<>(books, HttpStatus.OK);
+    }
+
+
 }

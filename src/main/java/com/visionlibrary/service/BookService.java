@@ -123,4 +123,14 @@ public class BookService {
         return entityManager.createQuery("SELECT p FROM Book p ORDER BY p.collection DESC",
                 Book.class).getResultList();
     }
+
+    public List<Book> findAvailableBooks() {
+        return entityManager.createQuery("SELECT p FROM Book p WHERE p.available is true",
+                Book.class).getResultList();
+    }
+
+    public List<Book> findUnavailableBooks() {
+        return entityManager.createQuery("SELECT p FROM Book p WHERE p.available is false",
+                Book.class).getResultList();
+    }
 }
