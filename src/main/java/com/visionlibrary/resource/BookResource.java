@@ -101,4 +101,16 @@ public class BookResource {
         return new ResponseEntity<>(books, HttpStatus.OK);
     }
 
+    @GetMapping("/sortAuthorAsc")
+    public ResponseEntity<List<Book>> getAuthorBooksAsc(){
+        List<Book> books = bookService.findByOrderByAuthorAsc();
+        return new ResponseEntity<>(books, HttpStatus.OK);
+    }
+
+    @GetMapping("/sortAuthorDesc")
+    public ResponseEntity<List<Book>> getAuthorBooksDesc(){
+        List<Book> books = bookService.findByOrderByAuthorDesc();
+        return new ResponseEntity<>(books, HttpStatus.OK);
+    }
+
 }
