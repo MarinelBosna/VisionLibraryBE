@@ -1,6 +1,7 @@
 package com.visionlibrary.resource;
 
 import com.visionlibrary.model.Book;
+import com.visionlibrary.model.enums.Category;
 import com.visionlibrary.service.BookService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -64,7 +65,7 @@ public class BookResource {
     }
 
     @GetMapping("/findByCategories")
-    public ResponseEntity<List<Book>> getBooksByCategories(@RequestParam String category){
+    public ResponseEntity<List<Book>> getBooksByCategories(@RequestParam Category category){
         return new ResponseEntity<>(bookService.findByCategory(category), HttpStatus.OK);
     }
 

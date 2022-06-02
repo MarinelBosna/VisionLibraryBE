@@ -1,6 +1,7 @@
 package com.visionlibrary.service;
 
 import com.visionlibrary.model.Book;
+import com.visionlibrary.model.enums.Category;
 import com.visionlibrary.repository.BookRepository;
 import com.visionlibrary.service.exceptions.BookNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,7 +63,7 @@ public class BookService {
         return bookRepository.findBookByPublishingHouse(publishingHouse);
     }
 
-    public List<Book> findByCategory(String category) {
+    public List<Book> findByCategory(Category category) {
         return bookRepository.findBookByCategory(category);
     }
 
