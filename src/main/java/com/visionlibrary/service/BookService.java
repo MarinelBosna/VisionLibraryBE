@@ -124,6 +124,17 @@ public class BookService {
                 Book.class).getResultList();
     }
 
+    public List<Book> findByOrderByNumberOfPagesAsc() {
+        return entityManager.createQuery("SELECT p FROM Book p ORDER BY p.numberOfPages",
+                Book.class).getResultList();
+    }
+
+    public List<Book> findByOrderByNumberOfPagesDesc() {
+        return entityManager.createQuery("SELECT p FROM Book p ORDER BY p.numberOfPages DESC",
+                Book.class).getResultList();
+    }
+
+
     public List<Book> findAvailableBooks() {
         return entityManager.createQuery("SELECT p FROM Book p WHERE p.available is true",
                 Book.class).getResultList();
@@ -133,4 +144,6 @@ public class BookService {
         return entityManager.createQuery("SELECT p FROM Book p WHERE p.available is false",
                 Book.class).getResultList();
     }
+
+
 }

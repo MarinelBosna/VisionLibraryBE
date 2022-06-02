@@ -114,6 +114,18 @@ public class BookResource {
         return new ResponseEntity<>(books, HttpStatus.OK);
     }
 
+    @GetMapping("/sortNumberOfPagesAsc")
+    public ResponseEntity<List<Book>> getNumberOfPagesBooksAsc(){
+        List<Book> books = bookService.findByOrderByNumberOfPagesAsc();
+        return new ResponseEntity<>(books, HttpStatus.OK);
+    }
+
+    @GetMapping("/sortNumberOfPagesDesc")
+    public ResponseEntity<List<Book>> getNumberOfPagesBooksDesc(){
+        List<Book> books = bookService.findByOrderByNumberOfPagesDesc();
+        return new ResponseEntity<>(books, HttpStatus.OK);
+    }
+
     @GetMapping("/sortPublishingHouseAsc")
     public ResponseEntity<List<Book>> getAuthorPublishingHouseAsc(){
         List<Book> books = bookService.findByOrderByPublishingHouseAsc();
@@ -137,6 +149,8 @@ public class BookResource {
         List<Book> books = bookService.findByOrderByCollectionDesc();
         return new ResponseEntity<>(books, HttpStatus.OK);
     }
+
+
 
     @GetMapping("/findAvailableBooks")
     public ResponseEntity<List<Book>> getAvailableBooks(){
