@@ -150,7 +150,17 @@ public class BookResource {
         return new ResponseEntity<>(books, HttpStatus.OK);
     }
 
+    @GetMapping("/sortYearOfLaunchAsc")
+    public ResponseEntity<List<Book>> getBooksByYearOfLaunchAsc(){
+        List<Book> books = bookService.findByOrderByYearOfLaunchAsc();
+        return new ResponseEntity<>(books, HttpStatus.OK);
+    }
 
+    @GetMapping("/sortYearOfLaunchDesc")
+    public ResponseEntity<List<Book>> getBooksByYearOfLaunchDesc(){
+        List<Book> books = bookService.findByOrderByYearOfLaunchDesc();
+        return new ResponseEntity<>(books, HttpStatus.OK);
+    }
 
     @GetMapping("/findAvailableBooks")
     public ResponseEntity<List<Book>> getAvailableBooks(){

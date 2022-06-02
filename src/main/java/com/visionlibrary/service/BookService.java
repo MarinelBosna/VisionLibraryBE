@@ -134,6 +134,16 @@ public class BookService {
                 Book.class).getResultList();
     }
 
+    public List<Book> findByOrderByYearOfLaunchAsc() {
+        return entityManager.createQuery("SELECT p FROM Book p ORDER BY p.yearOfLaunch",
+                Book.class).getResultList();
+    }
+
+    public List<Book> findByOrderByYearOfLaunchDesc() {
+        return entityManager.createQuery("SELECT p FROM Book p ORDER BY p.yearOfLaunch DESC",
+                Book.class).getResultList();
+    }
+
 
     public List<Book> findAvailableBooks() {
         return entityManager.createQuery("SELECT p FROM Book p WHERE p.available is true",
