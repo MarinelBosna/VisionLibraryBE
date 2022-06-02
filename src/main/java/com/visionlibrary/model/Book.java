@@ -1,6 +1,7 @@
 package com.visionlibrary.model;
 
 import com.visionlibrary.model.enums.Category;
+import com.visionlibrary.model.enums.Language;
 import lombok.*;
 
 import javax.persistence.*;
@@ -32,7 +33,7 @@ public class Book {
 
     private boolean available;
 
-    private String language;
+    private Language language;
 
     private int numberOfPages;
 

@@ -2,6 +2,7 @@ package com.visionlibrary.resource;
 
 import com.visionlibrary.model.Book;
 import com.visionlibrary.model.enums.Category;
+import com.visionlibrary.model.enums.Language;
 import com.visionlibrary.service.BookService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -80,7 +81,7 @@ public class BookResource {
     }
 
     @GetMapping("/findBylanguages")
-    public ResponseEntity<List<Book>> getBooksByLanguages(@RequestParam String language){
+    public ResponseEntity<List<Book>> getBooksByLanguages(@RequestParam Language language){
         return new ResponseEntity<>(bookService.findByLanguage(language), HttpStatus.OK);
     }
 

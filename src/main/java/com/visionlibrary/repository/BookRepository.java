@@ -3,6 +3,7 @@ package com.visionlibrary.repository;
 import com.visionlibrary.model.Book;
 
 import com.visionlibrary.model.enums.Category;
+import com.visionlibrary.model.enums.Language;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -19,7 +20,7 @@ public interface BookRepository extends JpaRepository<Book, Long>{
     List<Book> findBookByCategory(Category category);
     List<Book> findBookByCollection(String collection);
     List<Book> findBookByYearOfLaunch(int yearOfLaunch);
-    List<Book> findBookByLanguage(String language);
+    List<Book> findBookByLanguage(Language language);
     List<Book> findBookByBookCode(String bookCode);
 
 }
