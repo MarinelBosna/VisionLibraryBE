@@ -102,4 +102,14 @@ public class BookService {
         return entityManager.createQuery("SELECT p FROM Book p ORDER BY p.author DESC",
                 Book.class).getResultList();
     }
+
+    public List<Book> findByOrderByPublishingHouseAsc() {
+        return entityManager.createQuery("SELECT p FROM Book p ORDER BY p.publishingHouse",
+                Book.class).getResultList();
+    }
+
+    public List<Book> findByOrderByPublishingHouseDesc() {
+        return entityManager.createQuery("SELECT p FROM Book p ORDER BY p.publishingHouse DESC",
+                Book.class).getResultList();
+    }
 }
