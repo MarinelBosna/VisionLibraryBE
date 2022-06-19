@@ -19,11 +19,13 @@ public class BookResource {
         this.bookService = bookService;
     }
 
+
     @GetMapping("/all")
     public ResponseEntity<List<Book>> getAllBooks () {
         List<Book> books = bookService.findAllBooks();
         return new ResponseEntity<>(books, HttpStatus.OK);
     }
+
 
     @GetMapping("/find/{id}")
     public ResponseEntity<Book> getBookById (@PathVariable("id") Long id) {
