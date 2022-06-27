@@ -17,6 +17,8 @@ import java.util.UUID;
 @Service
 @Transactional
 public class BookService {
+
+    @Autowired
     private final BookRepository bookRepository;
 
     @PersistenceContext

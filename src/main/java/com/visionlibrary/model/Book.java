@@ -1,11 +1,13 @@
 package com.visionlibrary.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.visionlibrary.model.enums.Category;
 import com.visionlibrary.model.enums.Language;
 import lombok.*;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -14,33 +16,45 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @Builder
 @Table
-public class Book {
+public class  Book {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false, updatable = false)
     private Long id;
 
-    @NotNull
+    @Column(nullable = false)
     private String title;
 
-    @NotNull
+    @Column(nullable = false)
     private String author;
 
+    @Column
     private String publishingHouse;
 
+    @Column
     private String collection;
 
+    @Column(nullable = false)
     private boolean available;
 
+    @Column(nullable = false)
     private Language language;
 
+    @Column(nullable = false)
     private int numberOfPages;
 
+    @Column(nullable = false)
     private int yearOfLaunch;
 
+    @Column(nullable = false)
     private Category category;
 
-    @Column
+    @Column(nullable = false)
     private String bookCode;
+
+    @OneToMany(mappedBy = "book") //, fetch = FetchType.EAGER , LAZY ?
+    @JsonManagedReference
+    private List<Review> reviews = new ArrayList<>();
+
 }

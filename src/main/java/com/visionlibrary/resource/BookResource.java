@@ -4,6 +4,7 @@ import com.visionlibrary.model.Book;
 import com.visionlibrary.model.enums.Category;
 import com.visionlibrary.model.enums.Language;
 import com.visionlibrary.service.BookService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,8 +14,10 @@ import java.util.List;
 @RestController
 @RequestMapping("/books")
 public class BookResource {
+    @Autowired
     private final BookService bookService;
 
+    @Autowired
     public BookResource(BookService bookService) {
         this.bookService = bookService;
     }
